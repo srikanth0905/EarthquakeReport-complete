@@ -15,4 +15,8 @@
 -->
 <resources>
     <string name="app_name">Quake Report</string>
+
+    <string name="place">Place of Earthquake</string>
+    <string name="magnitude">Magnitude</string>
+    <string name="date">Date</string>
 </resources>
