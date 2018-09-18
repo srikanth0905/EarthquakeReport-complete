@@ -31,15 +31,22 @@ public class QuakeAdapter extends ArrayAdapter<Quake> {
         final Quake currentQuakeList = getItem(position);
 
         TextView magnitude = (TextView) listItemView.findViewById(R.id.magnitude);
-        assert currentQuakeList != null;
+        //assert currentQuakeList != null;
         magnitude.setText(currentQuakeList.getMagnitude());
 
         TextView place = (TextView) listItemView.findViewById(R.id.place);
         place.setText(currentQuakeList.getPlaceName());
 
+        TextView nearby = (TextView) listItemView.findViewById(R.id.nearOf);
+        nearby.setText(currentQuakeList.getNearby());
+
         TextView date = (TextView) listItemView.findViewById(R.id.date);
         date.setText(currentQuakeList.getDate());
 
+        TextView time = (TextView) listItemView.findViewById(R.id.time);
+        time.setText(currentQuakeList.getTime());
+
         return listItemView;
     }
+
 }
