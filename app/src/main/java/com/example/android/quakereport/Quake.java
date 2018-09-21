@@ -12,13 +12,13 @@ public class Quake {
     private String date;
 
     //@param magnitude for Magnitude of Earthquake
-    private String magnitude;
+    private double magnitude;
 
     //@param time for time of Earthquake
     private String time;
 
 
-    Quake(String mag, String nearby, String place, String dt, String time) {
+    Quake(double mag, String nearby, String place, String dt, String time) {
         magnitude = mag;
         placeName = place;
         this.nearby = nearby;
@@ -39,7 +39,7 @@ public class Quake {
         return date;
     }
 
-    public String getMagnitude() {
+    public double getMagnitude() {
         return magnitude;
     }
 
