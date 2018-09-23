@@ -15,8 +15,12 @@
  */
 package com.example.android.quakereport;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -30,12 +34,28 @@ public class EarthquakeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.earthquake_activity);
 
-        ArrayList<Quake> earthquakes = QueryUtils.extractEarthquakes();
+        final ArrayList<Quake> earthquakes = QueryUtils.extractEarthquakes();
 
         // Create a new {@link ArrayAdapter} of earthquakes
-        QuakeAdapter adapter = new QuakeAdapter(this, earthquakes);
+        final QuakeAdapter adapter = new QuakeAdapter(this, earthquakes);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
+
+
+        //to open browser page for more information
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Quake quake = earthquakes.get(position);
+
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                String url = quake.getUrl();
+                intent.setData(Uri.parse(url));
+
+                startActivity(intent);
+            }
+        });
 
     }
 }

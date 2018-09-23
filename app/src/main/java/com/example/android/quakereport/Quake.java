@@ -18,12 +18,17 @@ public class Quake {
     private String time;
 
 
-    Quake(double mag, String nearby, String place, String dt, String time) {
+    //@param for BrowserLink
+    private String browserLink;
+
+
+    Quake(double mag, String nearby, String place, String dt, String time, String url) {
         magnitude = mag;
         placeName = place;
         this.nearby = nearby;
         date = dt;
         this.time = time;
+        browserLink = url;
     }
 
 
@@ -45,5 +50,9 @@ public class Quake {
 
     public String getTime() {
         return time;
+    }
+
+    public String getUrl() {
+        return browserLink;
     }
 }

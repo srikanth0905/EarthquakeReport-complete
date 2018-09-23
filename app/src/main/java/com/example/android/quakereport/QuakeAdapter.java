@@ -103,5 +103,4 @@ public class QuakeAdapter extends ArrayAdapter<Quake> {
         return ContextCompat.getColor(getContext(), magnitudeColorResourceId);
     }
 
-
 }

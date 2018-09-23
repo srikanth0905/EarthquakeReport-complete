@@ -71,10 +71,13 @@ public final class QueryUtils {
 
                 long timeInMilliseconds = properties.getLong("time");
 
+                String browserLink = properties.getString("url");
+
 
                 earthquakes.add(new Quake(mag,
                         place[0], place[1],
-                        convertDate(timeInMilliseconds), convertTime(timeInMilliseconds)));
+                        convertDate(timeInMilliseconds), convertTime(timeInMilliseconds),
+                        browserLink));
             }
 
         } catch (JSONException e) {
